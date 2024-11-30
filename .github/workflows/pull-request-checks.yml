@@ -1,0 +1,30 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  checks:
+    name: Run Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Lint
+        run: |
+          echo "Running lint checks..."
+          # Add your linting command here, e.g., npm run lint
+
+      - name: Run Tests
+        run: |
+          echo "Running tests..."
+          # Add your testing command here, e.g., npm test
+
+      - name: Build Project
+        run: |
+          echo "Building the project..."
+          # Add your build command here, e.g., npm run build
