@@ -3,7 +3,7 @@ name: Pull Request Checks
 on:
   pull_request:
     branches:
-      - master  # Triggers checks only on pull requests targeting master
+      - main  # Triggers checks only on pull requests targeting master
 
 jobs:
   checks:
