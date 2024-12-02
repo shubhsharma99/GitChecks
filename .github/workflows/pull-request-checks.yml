@@ -8,27 +8,29 @@ on:
 jobs:
   checks:
     name: Run Checks
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Runs the job on the latest Ubuntu environment
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Checks out your repository code
 
-      - name: Run Lint
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9  # You can specify your desired Python version
+
+      - name: Install Dependencies
         run: |
-          echo "Running lint checks..."
-          # Replace this with actual linting commands for your Python application
-          pip install flake8
-          flake8 .
+          python -m pip install --upgrade pip  # Upgrades pip
+          pip install -r requirements.txt  # Installs dependencies from requirements.txt
+
+      - name: Run Lint Checks
+        run: |
+          pip install flake8  # Installs flake8 for linting
+          flake8 .  # Runs linting on the code
 
       - name: Run Tests
         run: |
-          echo "Running tests..."
-          # Replace this with actual test commands
-          pip install pytest
-          pytest
+          pip install pytest  # Installs pytest for testing
+          pytest  # Runs tests
 
-      - name: Build Project
-        run: |
-          echo "Building the project..."
-          # Replace this with actual build commands if needed
