@@ -32,4 +32,4 @@ jobs:
 
       - name: Run Tests
         run: |
-          pytest  # Runs tests
+          pytest -v tests/  # Runs tests in the 'tests' directory with verbose output
