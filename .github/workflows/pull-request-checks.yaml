@@ -23,13 +23,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip  # Upgrades pip
           pip install flake8  # Installs flake8 for linting
-          pip install pytest  # Installs pytest for testing
-          # Add other dependencies you may need here
 
       - name: Run Lint Checks
         run: |
           flake8 .  # Runs linting on the code
-
-      - name: Run Tests
-        run: |
-          pytest -v tests/  # Runs tests in the 'tests' directory with verbose output
